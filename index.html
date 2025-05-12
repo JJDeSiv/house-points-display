@@ -5,37 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="House points papplewick.css">
     <title>House Points</title>
     <style>
         html, body {
             margin: 0;
             padding: 0;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background-color: #80bfe8;
             font-family: Arial, sans-serif;
+            overflow: hidden;
         }
 
         .scaled-wrapper {
-            transform-origin: top center;
             width: 1440px;
             height: 1458px;
-        }
-
-        @media (max-width: 1440px), (max-height: 1458px) {
-            html, body {
-                overflow: hidden;
-            }
-
-            .scaled-wrapper {
-                transform: scale(calc(min(100vw / 1440, 100vh / 1458)));
-            }
+            transform-origin: top center;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: scale(calc(min(100vw / 1440, 100vh / 1458))) translateX(-50%);
         }
 
         .page-container {
             width: 1440px;
             height: 1458px;
-            margin: 0 auto;
             display: flex;
             flex-direction: column;
             align-items: center;
