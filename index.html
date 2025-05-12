@@ -13,7 +13,7 @@
       height: 100vh;
       background-color: #80bfe8;
       font-family: Arial, sans-serif;
-      overflow: hidden;
+      overflow-x: hidden; /* allow vertical scrolling within iframes only */
     }
 
     .page-container {
@@ -66,8 +66,8 @@
     .carousel__iframes {
       border: 0;
       width: 100%;
-      height: 850px; /* Reduced to fit 1080p screen with header */
-      overflow: hidden;
+      height: 850px; /* Adjusted to fit within 1080p layout */
+      overflow: auto; /* allows iframe content to scroll */
     }
   </style>
 </head>
@@ -81,29 +81,29 @@
     <div class="iframe-container">
       <div class="iframe-column">
         <p class="house-st-christopher">St Christopher</p>
-        <iframe class="carousel__iframes" scrolling="no" allowtransparency="true"
-          src="https://api.epraise.co.uk/api_private.php?school=papplewick&key=9hi3koamfqjYN0KhJGfuTF6tuU6WM9Cn76W6G38I&view=studentleaderboard&house=St%20Christopher&fontsize=14&lineheight=30&leftmargin=20&rows=200">
+        <iframe class="carousel__iframes"
+          src="https://api.epraise.co.uk/api_private.php?school=papplewick&amp;key=9hi3koamfqjYN0KhJGfuTF6tuU6WM9Cn76W6G38I&amp;view=studentleaderboard&amp;house=St%20Christopher&amp;fontsize=14&amp;lineheight=30&amp;leftmargin=20&amp;rows=200">
         </iframe>
       </div>
 
       <div class="iframe-column">
         <p class="house-st-george">St George</p>
-        <iframe class="carousel__iframes" scrolling="no" allowtransparency="true"
-          src="https://api.epraise.co.uk/api_private.php?school=papplewick&key=9hi3koamfqjYN0KhJGfuTF6tuU6WM9Cn76W6G38I&view=studentleaderboard&house=St%20George&fontsize=14&lineheight=30&leftmargin=20&rows=200">
+        <iframe class="carousel__iframes"
+          src="https://api.epraise.co.uk/api_private.php?school=papplewick&amp;key=9hi3koamfqjYN0KhJGfuTF6tuU6WM9Cn76W6G38I&amp;view=studentleaderboard&amp;house=St%20George&amp;fontsize=14&amp;lineheight=30&amp;leftmargin=20&amp;rows=200">
         </iframe>
       </div>
 
       <div class="iframe-column">
         <p class="house-st-michael">St Michael</p>
-        <iframe class="carousel__iframes" scrolling="no" allowtransparency="true"
-          src="https://api.epraise.co.uk/api_private.php?school=papplewick&key=9hi3koamfqjYN0KhJGfuTF6tuU6WM9Cn76W6G38I&view=studentleaderboard&house=St%20Michael&fontsize=14&lineheight=30&leftmargin=20&rows=200">
+        <iframe class="carousel__iframes"
+          src="https://api.epraise.co.uk/api_private.php?school=papplewick&amp;key=9hi3koamfqjYN0KhJGfuTF6tuU6WM9Cn76W6G38I&amp;view=studentleaderboard&amp;house=St%20Michael&amp;fontsize=14&amp;lineheight=30&amp;leftmargin=20&amp;rows=200">
         </iframe>
       </div>
 
       <div class="iframe-column">
         <p class="house-st-nicolas">St Nicolas</p>
-        <iframe class="carousel__iframes" scrolling="no" allowtransparency="true"
-          src="https://api.epraise.co.uk/api_private.php?school=papplewick&key=9hi3koamfqjYN0KhJGfuTF6tuU6WM9Cn76W6G38I&view=studentleaderboard&house=St%20Nicolas&fontsize=14&lineheight=30&leftmargin=20&rows=200">
+        <iframe class="carousel__iframes"
+          src="https://api.epraise.co.uk/api_private.php?school=papplewick&amp;key=9hi3koamfqjYN0KhJGfuTF6tuU6WM9Cn76W6G38I&amp;view=studentleaderboard&amp;house=St%20Nicolas&amp;fontsize=14&amp;lineheight=30&amp;leftmargin=20&amp;rows=200">
         </iframe>
       </div>
     </div>
