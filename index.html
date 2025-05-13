@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="30" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>House Points</title>
   <style>
@@ -116,8 +115,38 @@
     </div>
   </div>
 
-  <!-- Footer Spacer to prevent overscroll gap -->
   <div class="footer-spacer"></div>
+
+  <script>
+    // Scroll config
+    const scrollDelayAtTop = 3000; // ms pause at top
+    const scrollStep = 1;          // pixels per step
+    const scrollInterval = 50;     // ms per scroll tick
+    const delayBeforeRefresh = 2000; // pause at bottom before refresh
+
+    window.onload = function () {
+      // Ensure top of page
+      window.scrollTo(0, 0);
+
+      // Start after delay
+      setTimeout(() => {
+        const scrollTimer = setInterval(() => {
+          const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+          const scrollHeight = document.documentElement.scrollHeight;
+          const clientHeight = document.documentElement.clientHeight;
+
+          if (scrollTop + clientHeight < scrollHeight) {
+            window.scrollBy(0, scrollStep);
+          } else {
+            clearInterval(scrollTimer);
+            setTimeout(() => {
+              location.reload();
+            }, delayBeforeRefresh);
+          }
+        }, scrollInterval);
+      }, scrollDelayAtTop);
+    };
+  </script>
 </body>
 
 </html>
