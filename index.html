@@ -119,7 +119,6 @@
   <div class="footer-spacer"></div>
 
   <script>
-    // Disable automatic scroll restoration
     window.history.scrollRestoration = "manual";
     window.scrollTo(0, 0);
 
@@ -133,15 +132,15 @@
           const clientHeight = document.documentElement.clientHeight;
 
           if (scrollTop + clientHeight < scrollHeight) {
-            window.scrollBy(0, 1); // slow scroll
+            window.scrollBy(0, 3); // faster scroll
           } else {
             clearInterval(scrollTimer);
             setTimeout(() => {
-              window.scrollTo(0, 0); // ensure top before reload
+              window.scrollTo(0, 0); // ensure reset
               location.reload();
             }, 2000);
           }
-        }, 50);
+        }, 30); // faster speed
       }, 3000); // pause at top
     };
   </script>
