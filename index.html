@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="60" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>House Points</title>
   <style>
@@ -111,25 +110,32 @@
   </div>
 
   <script>
-    let scrollDirection = 1; // 1 for down, -1 for up
+    // Delay before scroll starts (ms)
+    const delayBeforeScroll = 3000;
+    const delayBeforeRefresh = 2000;
+    const scrollSpeed = 1; // pixels per tick
+    const scrollInterval = 50; // ms between scrolls
 
-    function autoScroll() {
-      window.scrollBy(0, scrollDirection); // Scroll by 1px
+    function scrollDown() {
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight;
       const clientHeight = document.documentElement.clientHeight;
 
-      // If reached bottom, scroll up
-      if (scrollTop + clientHeight >= scrollHeight) {
-        scrollDirection = -1;
-      }
-      // If at top, scroll down
-      if (scrollTop <= 0) {
-        scrollDirection = 1;
+      // If not yet at bottom, scroll down
+      if (scrollTop + clientHeight < scrollHeight) {
+        window.scrollBy(0, scrollSpeed);
+      } else {
+        // At bottom — wait then refresh
+        setTimeout(() => {
+          location.reload();
+        }, delayBeforeRefresh);
       }
     }
 
-    setInterval(autoScroll, 50); // Adjust speed here (lower is faster)
+    // Wait before starting scroll
+    setTimeout(() => {
+      setInterval(scrollDown, scrollInterval);
+    }, delayBeforeScroll);
   </script>
 </body>
 
