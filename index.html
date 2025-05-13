@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="scroll-restoration" content="manual" />
   <title>House Points</title>
   <style>
     html, body {
@@ -118,17 +119,13 @@
   <div class="footer-spacer"></div>
 
   <script>
-    // Scroll config
-    const scrollDelayAtTop = 3000; // ms pause at top
-    const scrollStep = 1;          // pixels per step
-    const scrollInterval = 50;     // ms per scroll tick
-    const delayBeforeRefresh = 2000; // pause at bottom before refresh
+    // Disable automatic scroll restoration
+    window.history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
 
     window.onload = function () {
-      // Ensure top of page
       window.scrollTo(0, 0);
 
-      // Start after delay
       setTimeout(() => {
         const scrollTimer = setInterval(() => {
           const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -136,15 +133,16 @@
           const clientHeight = document.documentElement.clientHeight;
 
           if (scrollTop + clientHeight < scrollHeight) {
-            window.scrollBy(0, scrollStep);
+            window.scrollBy(0, 1); // slow scroll
           } else {
             clearInterval(scrollTimer);
             setTimeout(() => {
+              window.scrollTo(0, 0); // ensure top before reload
               location.reload();
-            }, delayBeforeRefresh);
+            }, 2000);
           }
-        }, scrollInterval);
-      }, scrollDelayAtTop);
+        }, 50);
+      }, 3000); // pause at top
     };
   </script>
 </body>
