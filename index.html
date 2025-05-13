@@ -132,16 +132,16 @@
           const clientHeight = document.documentElement.clientHeight;
 
           if (scrollTop + clientHeight < scrollHeight) {
-            window.scrollBy(0, 3); // faster scroll
+            window.scrollBy(0, 2); // Medium speed
           } else {
             clearInterval(scrollTimer);
             setTimeout(() => {
-              window.scrollTo(0, 0); // ensure reset
+              window.scrollTo(0, 0);
               location.reload();
             }, 2000);
           }
-        }, 30); // faster speed
-      }, 3000); // pause at top
+        }, 40); // Medium speed
+      }, 3000); // Initial pause at top
     };
   </script>
 </body>
