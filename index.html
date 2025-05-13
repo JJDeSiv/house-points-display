@@ -82,44 +82,49 @@
       <div class="iframe-column">
         <p class="house-st-christopher">St Christopher</p>
         <iframe class="carousel__iframes"
-          src="https://api.epraise.co.uk/api_private.php?school=papplewick&amp;key=9hi3koamfqjYN0KhJGfuTF6tuU6WM9Cn76W6G38I&amp;view=studentleaderboard&amp;house=St%20Christopher&amp;fontsize=14&amp;lineheight=30&amp;leftmargin=20&amp;rows=60">
+          src="https://api.epraise.co.uk/api_private.php?school=papplewick&key=9hi3koamfqjYN0KhJGfuTF6tuU6WM9Cn76W6G38I&view=studentleaderboard&house=St%20Christopher&fontsize=14&lineheight=30&leftmargin=20&rows=60">
         </iframe>
       </div>
 
       <div class="iframe-column">
         <p class="house-st-george">St George</p>
         <iframe class="carousel__iframes"
-          src="https://api.epraise.co.uk/api_private.php?school=papplewick&amp;key=9hi3koamfqjYN0KhJGfuTF6tuU6WM9Cn76W6G38I&amp;view=studentleaderboard&amp;house=St%20George&amp;fontsize=14&amp;lineheight=30&amp;leftmargin=20&amp;rows=60">
+          src="https://api.epraise.co.uk/api_private.php?school=papplewick&key=9hi3koamfqjYN0KhJGfuTF6tuU6WM9Cn76W6G38I&view=studentleaderboard&house=St%20George&fontsize=14&lineheight=30&leftmargin=20&rows=60">
         </iframe>
       </div>
 
       <div class="iframe-column">
         <p class="house-st-michael">St Michael</p>
         <iframe class="carousel__iframes"
-          src="https://api.epraise.co.uk/api_private.php?school=papplewick&amp;key=9hi3koamfqjYN0KhJGfuTF6tuU6WM9Cn76W6G38I&amp;view=studentleaderboard&amp;house=St%20Michael&amp;fontsize=14&amp;lineheight=30&amp;leftmargin=20&amp;rows=60">
+          src="https://api.epraise.co.uk/api_private.php?school=papplewick&key=9hi3koamfqjYN0KhJGfuTF6tuU6WM9Cn76W6G38I&view=studentleaderboard&house=St%20Michael&fontsize=14&lineheight=30&leftmargin=20&rows=60">
         </iframe>
       </div>
 
       <div class="iframe-column">
         <p class="house-st-nicolas">St Nicolas</p>
         <iframe class="carousel__iframes"
-          src="https://api.epraise.co.uk/api_private.php?school=papplewick&amp;key=9hi3koamfqjYN0KhJGfuTF6tuU6WM9Cn76W6G38I&amp;view=studentleaderboard&amp;house=St%20Nicolas&amp;fontsize=14&amp;lineheight=30&amp;leftmargin=20&amp;rows=60">
+          src="https://api.epraise.co.uk/api_private.php?school=papplewick&key=9hi3koamfqjYN0KhJGfuTF6tuU6WM9Cn76W6G38I&view=studentleaderboard&house=St%20Nicolas&fontsize=14&lineheight=30&leftmargin=20&rows=60">
         </iframe>
       </div>
     </div>
   </div>
 
   <script>
-    // Force scroll to top on page load (ScreenCloud fix)
-    window.onload = function () {
+    // Scroll to top immediately
+    window.scrollTo(0, 0);
+
+    // Ensure scroll reset on full load too
+    window.addEventListener("load", function () {
       window.scrollTo(0, 0);
 
-      // Start scroll after delay
-      setTimeout(() => {
-        const scrollSpeed = 1; // px per step
-        const scrollInterval = 50; // ms per step
-        const delayBeforeRefresh = 2000;
+      // Scroll config
+      const scrollSpeed = 1;            // pixels per step
+      const scrollInterval = 50;        // ms between steps
+      const delayBeforeScroll = 3000;   // ms before scroll starts
+      const delayBeforeRefresh = 2000;  // ms pause at bottom before reload
 
+      // Start scrolling after initial delay
+      setTimeout(() => {
         const scrollDown = setInterval(() => {
           const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
           const scrollHeight = document.documentElement.scrollHeight;
@@ -130,12 +135,12 @@
           } else {
             clearInterval(scrollDown);
             setTimeout(() => {
-              location.reload(); // refresh to restart
+              location.reload(); // refresh and start again from top
             }, delayBeforeRefresh);
           }
         }, scrollInterval);
-      }, 3000); // delay before scroll starts
-    };
+      }, delayBeforeScroll);
+    });
   </script>
 </body>
 
